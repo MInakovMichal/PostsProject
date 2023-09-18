@@ -1,0 +1,196 @@
+<?xml version="1.0"?>
+<psalm
+    cacheDirectory="/var/tmp/psalm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="https://getpsalm.org/schema/config"
+    xsi:schemaLocation="https://getpsalm.org/schema/config vendor/vimeo/psalm/config.xsd"
+    findUnusedCode="false"
+    findUnusedBaselineEntry="true"
+>
+
+    <projectFiles>
+        <directory name="Common" />
+        <directory name="Component" />
+        <ignoreFiles>
+            <directory name="vendor" />
+            <directory name="routes" />
+        </ignoreFiles>
+    </projectFiles>
+
+    <issueHandlers>
+        <LessSpecificReturnType errorLevel="info" />
+        <DeprecatedMethod errorLevel="info" />
+        <DeprecatedProperty errorLevel="info" />
+        <DeprecatedClass errorLevel="info" />
+        <DeprecatedConstant errorLevel="info" />
+        <DeprecatedFunction errorLevel="info" />
+        <DeprecatedInterface errorLevel="info" />
+        <DeprecatedTrait errorLevel="info" />
+
+        <InternalMethod errorLevel="info" />
+        <InternalProperty errorLevel="info" />
+        <InternalClass errorLevel="info" />
+
+        <MissingClosureReturnType errorLevel="info" />
+        <MissingReturnType errorLevel="info" />
+        <MissingPropertyType errorLevel="info" />
+        <InvalidDocblock errorLevel="info" />
+        <InvalidStringClass errorLevel="info" />
+
+
+        <MissingConstructor errorLevel="info" />
+        <MissingClosureParamType errorLevel="info" />
+        <MissingParamType errorLevel="info" />
+
+        <RedundantCondition errorLevel="info" />
+
+        <DocblockTypeContradiction errorLevel="info" />
+        <RedundantConditionGivenDocblockType errorLevel="info" />
+
+        <UnresolvableInclude errorLevel="info" />
+
+        <RawObjectIteration errorLevel="info" />
+
+        <InvalidStringClass errorLevel="info" />
+
+        <PropertyNotSetInConstructor errorLevel="info" />
+        <PropertyNotSetInConstructor>
+            <errorLevel type="suppress">
+                <!-- Laravel Request issues -->
+                <referencedProperty name="Illuminate\Foundation\Http\FormRequest::$container"/>
+                <referencedProperty name="Illuminate\Foundation\Http\FormRequest::$redirector"/>
+                <referencedProperty name="Illuminate\Foundation\Http\FormRequest::$redirect"/>
+                <referencedProperty name="Illuminate\Foundation\Http\FormRequest::$redirectRoute"/>
+                <referencedProperty name="Illuminate\Foundation\Http\FormRequest::$redirectAction"/>
+                <referencedProperty name="Illuminate\Foundation\Http\FormRequest::$validator"/>
+                <referencedProperty name="Illuminate\Http\Request::$convertedFiles"/>
+                <referencedProperty name="Illuminate\Http\Request::$userResolver"/>
+                <referencedProperty name="Illuminate\Http\Request::$routeResolver"/>
+                <referencedProperty name="Symfony\Component\HttpFoundation\Request::$session"/>
+                <referencedProperty name="Symfony\Component\HttpFoundation\Request::$locale"/>
+
+                <!-- Laravel Command issues -->
+                <referencedProperty name="Illuminate\Console\Concerns\InteractsWithIO::$input"/>
+                <referencedProperty name="Illuminate\Console\Concerns\InteractsWithIO::$output"/>
+                <referencedProperty name="Illuminate\Console\Command::$laravel"/>
+                <referencedProperty name="Illuminate\Console\Command::$name"/>
+
+                <!-- Laravel Job issues-->
+                <referencedProperty name="Illuminate\Queue\InteractsWithQueue::$job"/>
+                <directory name="tests"/>
+                <file name="*/*/Sdk/Model/*Read*"/>
+                <file name="Component/User/Infrastructure/Mail/CustomMail.php"/>
+            </errorLevel>
+        </PropertyNotSetInConstructor>
+
+        <UndefinedGlobalVariable>
+            <errorLevel type="suppress">
+                <directory name="resources"/>
+            </errorLevel>
+        </UndefinedGlobalVariable>
+
+        <UndefinedMagicMethod>
+            <errorLevel type="suppress">
+                <directory name="tests"/>
+                <file name="*/*/Infrastructure/UserProvider/*"/>
+                <file name="*/*/Infrastructure/Repository/*EntityRepositoryImpl*"/>
+            </errorLevel>
+        </UndefinedMagicMethod>
+
+        <PossiblyUndefinedMethod>
+            <errorLevel type="suppress">
+                <directory name="tests"/>
+                <file name="*/*/Infrastructure/Http/Controllers/*Controller.php"/>
+            </errorLevel>
+        </PossiblyUndefinedMethod>
+
+        <PossiblyInvalidArgument>
+            <errorLevel type="suppress">
+                <directory name="tests"/>
+            </errorLevel>
+        </PossiblyInvalidArgument>
+
+        <InvalidArgument>
+            <errorLevel type="suppress">
+                <file name="Component/User/Infrastructure/Listeners/SendCustomUserMailListener.php"/>
+            </errorLevel>
+        </InvalidArgument>
+
+        <PossiblyNullReference>
+            <errorLevel type="suppress">
+                <file name="Component/User/Infrastructure/Listeners/SendCustomUserMailListener.php"/>
+            </errorLevel>
+        </PossiblyNullReference>
+
+        <InvalidReturnStatement>
+            <errorLevel type="suppress">
+                <file name="Component/User/Infrastructure/Http/Requests/SendNotificationRequest.php"/>
+                <file name="Component/*/Infrastructure/Repository/*RepositoryImpl.php"/>
+            </errorLevel>
+        </InvalidReturnStatement>
+
+        <MissingTemplateParam>
+            <errorLevel type="suppress">
+                <file name="Common/Exception/*ApiException*"/>
+                <file name="Component/*/Sdk/Model/*Read*"/>
+            </errorLevel>
+        </MissingTemplateParam>
+
+        <MixedMethodCall>
+            <errorLevel type="suppress">
+                <file name="*/*/Infrastructure/Repository/*RepositoryImpl*"/>
+                <file name="*/*/Infrastructure/Http/Controllers/*Controller.php"/>
+            </errorLevel>
+        </MixedMethodCall>
+
+        <MixedAssignment>
+            <errorLevel type="suppress">
+                <file name="*/*/Infrastructure/Repository/*EntityRepositoryImpl*"/>
+                <file name="*/*/Infrastructure/Http/Controllers/*Controller.php"/>
+            </errorLevel>
+        </MixedAssignment>
+
+        <UndefinedInterfaceMethod>
+            <errorLevel type="suppress">
+                <file name="Common/Auth/Infrastructure/Service/SocialiteServiceImpl.php"/>
+            </errorLevel>
+        </UndefinedInterfaceMethod>
+
+        <MixedReturnStatement>
+            <errorLevel type="suppress">
+                <file name="*/*/Infrastructure/Service/*.php"/>
+                <file name="*/*/Infrastructure/Repository/*.php"/>
+                <file name="*/*/Infrastructure/Http/Controllers/*Controller.php"/>
+            </errorLevel>
+        </MixedReturnStatement>
+
+        <MissingClosureParamType>
+            <errorLevel type="suppress">
+                <file name="*/*/Infrastructure/Service/*.php"/>
+                <file name="*/*/Infrastructure/Repository/*.php"/>
+            </errorLevel>
+        </MissingClosureParamType>
+
+        <MixedInferredReturnType>
+            <errorLevel type="suppress">
+                <file name="*/*/Infrastructure/Service/*.php"/>
+                <file name="*/*/Infrastructure/Repository/*.php"/>
+                <file name="*/*/Infrastructure/Http/Controllers/*Controller.php"/>
+            </errorLevel>
+        </MixedInferredReturnType>
+
+        <MixedArgument>
+            <errorLevel type="suppress">
+                <file name="*/*/Infrastructure/Service/*.php"/>
+                <file name="*/*/Infrastructure/Repository/*EntityRepository*.php"/>
+                <file name="*/*/Infrastructure/Http/Controllers/*Controller.php"/>
+            </errorLevel>
+        </MixedArgument>
+
+        <InvalidReturnType>
+            <errorLevel type="suppress">
+                <file name="*/*/Infrastructure/Repository/*RepositoryImpl.php"/>
+            </errorLevel>
+        </InvalidReturnType>
+    </issueHandlers>
+</psalm>

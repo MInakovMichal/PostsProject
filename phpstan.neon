@@ -1,0 +1,15 @@
+parameters:
+    level: max
+    checkGenericClassInNonGenericObjectType: false
+    reportMaybesInPropertyPhpDocTypes: false
+    paths:
+        - Common
+        - Component
+    ignoreErrors:
+        - '#Call to an undefined method [a-zA-Z0-9\\_]+::findOrFail\(\)#'
+        - '#Call to an undefined static method [a-zA-Z0-9\\_]+::where\(\)#'
+        - '#Call to an undefined method .+::route\(\)#'
+        - '#Call to an undefined method .+::intended\(\)#'
+        - '#Call to an undefined method .+View::with\(\)#'
+        - '#Call to an undefined method .+::json\(\)#'
+        - '#Call to an undefined method .+Redirector::back\(\)#'
