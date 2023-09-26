@@ -25,6 +25,7 @@ class RegisterControllerTest extends AppTestCase
             'password_confirmation' => 'Pass123#',
         ]);
 
+        $this->assertAuthenticated();
         $response->assertRedirect(RouteServiceProvider::HOME);
         Notification::assertCount(1);
     }
