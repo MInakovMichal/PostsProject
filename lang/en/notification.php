@@ -7,6 +7,6 @@ return [
     'value' => 'Content',
     'image' => 'Image',
     'send' => 'Send',
-    'title' => 'Send notification',
+    'title' => 'Contact',
     'select_option' => 'Select user'
 ];

@@ -7,6 +7,6 @@ return [
     'value' => 'Treść',
     'image' => 'Zdjęcie',
     'send' => 'Wyślij',
-    'title' => 'Wyślij powiadomienie',
+    'title' => 'Kontakt',
     'select_option' => 'Wybierz użytkownika'
 ];

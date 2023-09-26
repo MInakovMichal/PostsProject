@@ -24,6 +24,7 @@ class SendCustomUserMailListener
         $user = $this->userFacade->findByIdOrFail($event->getUserId());
 
         $data['user_id'] = $user->getId();
+        $data['user_email'] = $event->getAuthUserEmail()->getEmailAddress();
 
         if ($event->hasValue()) {
             $data['value'] = $event->getValue();

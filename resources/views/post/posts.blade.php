@@ -24,8 +24,8 @@
                     $result = floor($differenceInSeconds / 86400) . ' ' . __('post.time.days');
                 }
                 @endphp
-                {{ $result }}
-                @if (isAdmin())
+
+                @if (isAdmin() && hasPermission(['can_delete_post']))
                     <x-delete-button class="delete-post" style="float: right">
                         {{ __('post.buttons.delete') }}
                     </x-delete-button>

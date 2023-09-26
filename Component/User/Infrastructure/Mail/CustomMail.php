@@ -19,7 +19,11 @@ class CustomMail extends Mailable
      */
     public function build(): CustomMail
     {
+        /** @var string $mailFrom */
+        $mailFrom = $this->data['user_email'];
+
         $email = $this
+            ->from($mailFrom)
             ->subject('Custom Mail')
             ->view('customEmail')
             ->with(['data' => $this->data]);

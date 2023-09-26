@@ -6,11 +6,12 @@ namespace Component\User\Sdk\Event;
 
 use Common\Contract\SendNotificationContract;
 use Common\Exception\ValueNotSetException;
+use Common\ValueObject\Email;
 use Illuminate\Http\UploadedFile;
 
 class CustomUserMail implements SendNotificationContract
 {
-    public function __construct(readonly int $userId, readonly ?string $value = null, readonly ? UploadedFile $image = null)
+    public function __construct(readonly int $userId, readonly Email $authUserEmail, readonly ?string $value = null, readonly ? UploadedFile $image = null)
     {
     }
 
@@ -43,5 +44,10 @@ class CustomUserMail implements SendNotificationContract
     public function getUserId(): int
     {
         return $this->userId;
+    }
+
+    public function getAuthUserEmail(): Email
+    {
+        return $this->authUserEmail;
     }
 }

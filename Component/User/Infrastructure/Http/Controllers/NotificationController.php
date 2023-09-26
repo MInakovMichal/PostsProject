@@ -32,7 +32,9 @@ class NotificationController extends Controller
         $value = $request->hasValue() ? $request->getValue() : null;
         $image = $request->hasImage() ? $request->getImage() : null;
 
-        event(new CustomUserMail($request->getUserId(), $value, $image));
+        $authUserEmail = $this->authFacade->current()->getAuthUser()->getEmail();
+
+        event(new CustomUserMail($request->getUserId(), $authUserEmail, $value, $image));
 
         return redirect()->route('notification');
     }

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Common\Exception\UserIdNotSetException;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -44,7 +45,16 @@ class Post extends Model
 
     public function getUserId(): int
     {
+        if (!$this->hasUserId()){
+            throw new UserIdNotSetException($this->getId());
+        }
+
         return $this->user_id;
+    }
+
+    private function hasUserId(): bool
+    {
+        return $this->user_id !== null;
     }
 
     public function getImagePath(): ?string

@@ -1,5 +1,7 @@
 <?php
 
+use Common\ValueObject\PermissionValueObject;
+use Common\ValueObject\RoleValueObject;
 use Component\Post\Infrastructure\Http\Controllers\PostController;
 use Component\User\Infrastructure\Http\Controllers\NotificationController;
 use Component\User\Infrastructure\Http\Controllers\UserController;
@@ -24,7 +26,8 @@ Route::middleware(['auth', 'web', 'verified'])->group(function () {
     Route::controller(PostController::class)->name('post')->group(function () {
         Route::get('post', 'showAddPostForm');
         Route::post('post', 'addPost')->name('.add');
-        Route::delete('/post', 'deletePost')->name('.delete');
+        Route::delete('/post', 'deletePost')->middleware(['role_or_permission:' . RoleValueObject::admin()
+                ->getValue() . '|' . PermissionValueObject::canDeletePost()->getValue()])->name('.delete');
     });
 
     Route::controller(NotificationController::class)->name('notification')->group(function () {

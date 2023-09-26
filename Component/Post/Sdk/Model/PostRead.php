@@ -41,7 +41,7 @@ final class PostRead implements Arrayable
     {
         return [
             'id' => $this->id,
-            'userId' => $this->userId,
+            'user_id' => $this->userId,
             'value' => $this->value,
             'image_path' => $this->imagePath,
         ];

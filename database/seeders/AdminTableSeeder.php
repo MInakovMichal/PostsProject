@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Language;
 use App\Models\User;
+use Common\ValueObject\PermissionValueObject;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -39,6 +40,7 @@ class AdminTableSeeder extends Seeder
             $user->save();
 
             $user->assignRole(Role::findByName('admin'));
+            $user->givePermissionTo(PermissionValueObject::canDeletePost()->getValue());
         }
     }
 }
