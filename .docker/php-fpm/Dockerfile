@@ -11,6 +11,8 @@ RUN apt-get update && \
         libpng-dev \
         libzip-dev \
         zip \
+        nodejs \
+        npm \
         unzip && \
     apt-get install -y default-mysql-client && \
     apt-get install -y nodejs
