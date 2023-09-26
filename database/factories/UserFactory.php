@@ -23,7 +23,7 @@ class UserFactory extends Factory
             'name' => fake()->name(),
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
-            'password' => Hash::make(config('admin.default_admin_password')), // password
+            'password' => Hash::make('Pass123#'), // password
             'remember_token' => Str::random(10),
             'actual_language_id' => Language::firstOrFail()->getId()
         ];
