@@ -21,8 +21,8 @@ class RegisterControllerTest extends AppTestCase
         $response = $this->post('/register', [
             'name' => 'Test User',
             'email' => 'test@example.com',
-            'password' => config('admin.default_admin_password'),
-            'password_confirmation' => config('admin.default_admin_password'),
+            'password' => 'Pass123#',
+            'password_confirmation' => 'Pass123#',
         ]);
 
         $response->assertRedirect(RouteServiceProvider::HOME);

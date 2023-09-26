@@ -21,10 +21,9 @@ class LoginControllerTest extends AppTestCase
 
         $response = $this->post('/login', [
             'email' => $user->email,
-            'password' => config('admin.default_admin_password'),
+            'password' => 'Pass123#',
         ]);
 
-        dd($response);
         $this->assertAuthenticated();
         $response->assertRedirect(RouteServiceProvider::HOME);
     }
