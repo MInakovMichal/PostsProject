@@ -58,8 +58,10 @@ jobs:
         run: docker logs PostsTestTask_api
       - name: Autoload files
         run: docker exec PostsTestTask_api composer update composer install composer dump-autoload -o
-      - name: npm files
+      - name: npm files install
         run: docker exec PostsTestTask_api npm install
+      - name: npm run
+        run: docker exec PostsTestTask_api npm run build
       - name: Clear configuration file
         run: docker exec PostsTestTask_api php artisan optimize:clear
       - name: Run tests
