@@ -53,7 +53,7 @@ jobs:
       - run: ./init.sh
       - run: docker-compose up -d --build php database
       - name: "Wait for running api container"
-        run: sleep 100
+        run: sleep 45
       - name: Container logs
         run: docker logs PostsTestTask_api
       - name: Autoload files

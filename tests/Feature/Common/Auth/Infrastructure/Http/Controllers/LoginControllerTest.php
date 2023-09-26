@@ -24,6 +24,7 @@ class LoginControllerTest extends AppTestCase
             'password' => config('admin.default_admin_password'),
         ]);
 
+        dd($response);
         $this->assertAuthenticated();
         $response->assertRedirect(RouteServiceProvider::HOME);
     }
